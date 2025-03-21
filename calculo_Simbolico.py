@@ -20,3 +20,4 @@ plt.show()
 
 sy.diff(y,x)
 sy.integrate(y,x)
+

@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-from Práticas.calcular_regressao_linear import minimos_quadrados
+from calcular_regressao_linear import minimos_quadrados
 
 A = 100 #cm2
 T = np.array([200.0, 300.0, 400.0, 500.0, 600.0, 700.0, 800.0, 900.0, 1000.0, 1100.0])
@@ -24,7 +24,7 @@ plt.show()
 
 
 
-plt.loglog(T, P)
+plt.loglog(T, P, 'bo')
 plt.title('Log10(P) vs log10(T)')
 plt.xlabel("log10(T)")
 plt.ylabel("log10(P)")
