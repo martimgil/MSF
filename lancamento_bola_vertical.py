@@ -38,6 +38,7 @@ imax = np.argmax(y)
 tmax = t[imax]
 print("Tempo na altura máxima, tmax = ", tmax, "s")
 print("Altura máxima, y = ", y[imax], "m")
+
 izero = np.size(y) - np.size(y[y<0]) #posicao em que volta a origem
 tzero = t[izero]
-print("Tempo de rotorno à orígem, tzero = ", tzero, "s")
+print("Tempo de retorno à orígem, tzero = ", tzero, "s")
