@@ -44,4 +44,6 @@ print("Altura máxima, y = ", y[imax], "m")
 
 izero = np.size(y) - np.size(y[y<0])
 tzero = t[izero]
+vzero = v[izero]
 print("Tempo de retorno à origem, tzero = ", tzero, "s")
+print("Velocidade no retorno à origem = ", vzero)
