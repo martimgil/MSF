@@ -24,28 +24,55 @@ def minimos_quadrados(x, y):
 
     return m, b, r2, dm, db
 
+# Dados
+t = np.array([0,1,2,3,4,5,6,7])
+n = np.array([11,20,33,54,83,134,244,425])
 
-#a)
-A = np.array([9.679, 6.355, 4.261, 2.729, 1.862, 1.184, 0.7680, 0.4883, 0.3461, 0.2119])
-T = np.array([0,5,10,15,20,25,30, 35, 40, 45])
+# a) - Trace o gráfico de n(t)
 
-plt.scatter(T,A)
+m,b,r2,dm,db = minimos_quadrados(t,n)
+
+print('m =',m)
+print('b =',b)
+print('r2 =',r2)
+print('dm =',dm)
+print('db =',db)
+
+plt.scatter(t,n)
+plt.plot(t,m*t+b,'r-',label='Ajuste')
+plt.legend()
+plt.xlabel('Tempo (h)')
+plt.ylabel('Número de bactérias')
 plt.show()
-#R: Não
+
+plt.scatter(t,n)
 
 #b) 
 
-plt.semilogy(T, A, 'bo')  
-y = np.log(A) 
+plt.semilogy(t, n, 'bo')  
+y = np.log(n) 
 
-m, b, r2, dm, db = minimos_quadrados(T, y)
+m, b, r2, dm, db = minimos_quadrados(t, y)
 
-plt.plot(T, np.exp(m * T + b), 'r-', label="Ajuste")
+
+print('m =',m)
+print('b =',b)
+print('r2 =',r2)
+print('dm =',dm)
+print('db =',db)
+
+plt.plot(t, np.exp(m * t + b), 'r-', label="Ajuste")
 plt.legend()
 plt.xlabel("tempo (dias)")
 plt.ylabel("Atividade (mCi)")
 plt.show()
 
-print("m = {:.4f} +- {:.5f} dias-1".format(m, dm))
+#c)
+
+plt.scatter(t, n)
+plt.plot(t, np.exp(b)*np.exp(0.51*t))
+plt.show()
+
+
 
 

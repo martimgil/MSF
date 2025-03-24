@@ -3,27 +3,25 @@ import matplotlib.pyplot as plt
 
 
 def minimos_quadrados(x, y):
-    N = len(x)  # Número de pontos
-
-    # Somatórios necessários
+    # Número de pontos
+    N = x.size
+    
     sum_x = np.sum(x)
     sum_y = np.sum(y)
-    sum_x2 = np.sum(x**2)
+    sum_x2 = np.sum(x ** 2)
+    sum_y2 = np.sum(y ** 2)
     sum_xy = np.sum(x * y)
 
     # Coeficientes da reta
-    m = (N * sum_xy - sum_x * sum_y) / (N * sum_x2 - sum_x**2)
-    b = (sum_y * sum_x2 - sum_x * sum_xy) / (N * sum_x2 - sum_x**2)
+    m = (N * sum_xy - sum_x * sum_y) / (N * sum_x2 - sum_x ** 2)
+    b = (sum_x2 * sum_y - sum_x * sum_xy) / (N * sum_x2 - sum_x ** 2)
 
-    # Cálculo de r^2
-    y_pred = m * x + b
-    ssr = np.sum((y - y_pred)**2)  # Soma dos quadrados dos resíduos
-    sst = np.sum((y - np.mean(y))**2)  # Soma total dos quadrados
-    r2 = 1 - (ssr / sst)
+    # Coeficiente de determinação
+    r2 = ((N * sum_xy - sum_x * sum_y) ** 2) / ((N * sum_x2 - sum_x ** 2) * (N * sum_y2 - sum_y ** 2))
 
-    # Erros nos coeficientes
-    dm = np.sqrt(ssr / ((N - 2) * np.sum((x - np.mean(x))**2)))
-    db = dm * np.sqrt(np.sum(x**2) / N)
+    # Incertezas
+    dm = np.abs(m) * np.sqrt((1 / r2 - 1) / (N - 2))
+    db = dm * np.sqrt(sum_x2 / N)
 
     return m, b, r2, dm, db
 
