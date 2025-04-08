@@ -1,4 +1,4 @@
-import numpy as np3
+import numpy as np
 import matplotlib.pyplot as plt
 
 
@@ -19,7 +19,7 @@ for N in valores_N:
     incerteza = desvio_padrao_esperado / np.sqrt(N)
     incertezas.append(incerteza)
 
-
+fig, ax = plt.subplots()
 
 ax.plot(valores_N, medias)
 ax.axhline(y=media_esperada, color='r', linestyle='-')

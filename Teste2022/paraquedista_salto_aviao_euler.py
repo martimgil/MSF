@@ -73,7 +73,7 @@ y_pa[0] = y_sl[-1]
 v_pa[0] = v_sl[-1]
 
 for i in range(np.size(t2)-1):
-    a_pa[i] = -g-D_pa*v_pa[i]* np.abs(v_pa[i])
+    a_pa[i] = g-D_pa*v_pa[i]* np.abs(v_pa[i])
     v_pa[i+1] = v_pa[i] + a_pa[i]*dt
     y_pa[i+1] = y_pa[i] + v_pa[i]*dt
 
