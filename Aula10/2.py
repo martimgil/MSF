@@ -1,10 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-
-
-
-
 def maxminv(xm1,xm2,xm3,ym1,ym2,ym3):  
     # Máximo ou mínimo usando o polinómio de Lagrange
     # Dados (input): (x0,y0), (x1,y1) e (x2,y2) 
